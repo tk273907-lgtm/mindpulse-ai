@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MindPulse AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="bg" aria-hidden="true"></canvas>
+<main class="wrap">
+  <header class="intro">
+    <h1 aria-label="MindPulse AI">MindPulse</h1>
+    <p class="lead">Tell it how you scroll, sleep and study. A model trained on student survey data estimates your mental-health score from 12 signals, and the line behind this page reacts to every answer you give.</p>
+    <p class="hint"><i class="dot"></i>Live signal: <b id="sig">steady</b> <span>(visual preview only, the score comes from the model)</span></p>
+  </header>
+
+  <section class="card" id="card">
+    <div class="steps" id="steps"></div>
+    <form id="form" novalidate>
+      <div id="panels"></div>
+      <p class="err" id="err" role="alert" hidden></p>
+      <div class="nav">
+        <button type="button" id="back" class="ghost">Back</button>
+        <button type="button" id="next" class="go">Next</button>
+      </div>
+    </form>
+
+    <div class="res" id="result" hidden aria-live="polite">
+      <div class="gauge">
+        <svg viewBox="0 0 220 220" aria-hidden="true">
+          <defs><linearGradient id="gr" gradientUnits="userSpaceOnUse" x1="20" y1="110" x2="200" y2="110"><stop offset="0" stop-color="#ff6d8d"/><stop offset=".5" stop-color="#8b6cff"/><stop offset="1" stop-color="#38f0d0"/></linearGradient></defs>
+          <circle class="trk" cx="110" cy="110" r="90" fill="none" stroke-width="14"/>
+          <circle class="arc" id="arc" cx="110" cy="110" r="90" fill="none" stroke="url(#gr)" stroke-width="14" stroke-linecap="round"/>
+        </svg>
+        <div class="gc"><span id="score">0.00</span><small>out of 10</small></div>
+      </div>
+      <h2 id="band"></h2>
+      <p id="bandtxt" class="mute"></p>
+      <ul id="tips"></ul>
+      <p class="fine">This is a machine-learning estimate from survey data (correlation, not diagnosis). If you are struggling, please talk to someone you trust or a professional.</p>
+      <button type="button" id="again" class="go">Adjust my answers</button>
+    </div>
+  </section>
+</main>
+<datalist id="cl"></datalist>
+<script src="script.js"></script>
+</body>
+</html>
